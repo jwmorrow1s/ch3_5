@@ -1,5 +1,3 @@
-use std::cmp::PartialEq;
-
 #[derive(Debug, PartialEq)]
 struct Temperature {
     pub fahr: f64,
