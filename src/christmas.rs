@@ -42,7 +42,7 @@ fn rest_of_it(n: usize) -> String {
     }
 
     format!(
-        "{}{}{}{}{}{}{}{}{}{}{}{}.",
+        "{}{}{}{}{}{}{}{}{}{}{}{}.\n",
         if n == 12 {
             "twelve drummers drumming,\n"
         } else {
@@ -80,6 +80,19 @@ fn rest_of_it(n: usize) -> String {
             "a partridge in a pear tree"
         },
     )
+}
+
+#[allow(dead_code)]
+pub fn sing() -> String {
+    let mut song: String = "".to_owned();
+
+    for iter in 1..=12 {
+        song.push_str(&format!("{}{}", day_of_christmas(iter), rest_of_it(iter)));
+    }
+
+    println!("{}", song);
+
+    song
 }
 
 #[cfg(test)]
@@ -196,7 +209,7 @@ mod tests {
                 "four calling birds,\n",
                 "three french hens,\n",
                 "two turtledoves,\n",
-                "and a partridge in a pear tree."
+                "and a partridge in a pear tree.\n"
             )
         );
     }
@@ -207,19 +220,142 @@ mod tests {
             rest_of_it(1),
             format!(
                 "{}{}{}{}{}{}{}{}{}{}{}{}",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "a partridge in a pear tree."
+                "", "", "", "", "", "", "", "", "", "", "", "a partridge in a pear tree.\n"
             )
         );
+    }
+
+    #[test]
+    #[should_panic]
+    fn rest_of_it_gt_12() {
+        rest_of_it(13);
+    }
+
+    #[test]
+    #[should_panic]
+    fn rest_of_it_zero() {
+        rest_of_it(0);
+    }
+    #[test]
+    fn sing_it_works() {
+        assert_eq!(
+            sing(), 
+            format!("{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}",
+                "On the first day of Christmas\n",
+                "my true love gave to me:\n",
+                "a partridge in a pear tree.",
+                "\n",
+                "On the second day of Christmas\n",
+                "my true love gave to me:\n",
+                "two turtledoves,\n",
+                "and a partridge in a pear tree.",
+                "\n",
+                "On the third day of Christmas\n",
+                "my true love gave to me:\n",
+                "three french hens,\n",
+                "two turtledoves,\n",
+                "and a partridge in a pear tree.",
+                "\n",
+                "On the fourth day of Christmas\n",
+                "my true love gave to me:\n",
+                "four calling birds,\n",
+                "three french hens,\n",
+                "two turtledoves,\n",
+                "and a partridge in a pear tree.",
+                "\n",
+                "On the fifth day of Christmas\n",
+                "my true love gave to me:\n",
+                "five golden rings,\n",
+                "four calling birds,\n",
+                "three french hens,\n",
+                "two turtledoves,\n",
+                "and a partridge in a pear tree.",
+                "\n",
+                "On the sixth day of Christmas\n",
+                "my true love gave to me:\n",
+                "six geese a-laying,\n",
+                "five golden rings,\n",
+                "four calling birds,\n",
+                "three french hens,\n",
+                "two turtledoves,\n",
+                "and a partridge in a pear tree.",
+                "\n",
+                "On the seventh day of Christmas\n",
+                "my true love gave to me:\n",
+                "seven swans a-swimming,\n",
+                "six geese a-laying,\n",
+                "five golden rings,\n",
+                "four calling birds,\n",
+                "three french hens,\n",
+                "two turtledoves,\n",
+                "and a partridge in a pear tree.",
+                "\n",
+                "On the eighth day of Christmas\n",
+                "my true love gave to me:\n",
+                "eight maids a-milking,\n",
+                "seven swans a-swimming,\n",
+                "six geese a-laying,\n",
+                "five golden rings,\n",
+                "four calling birds,\n",
+                "three french hens,\n",
+                "two turtledoves,\n",
+                "and a partridge in a pear tree.",
+                "\n",
+                "On the ninth day of Christmas\n",
+                "my true love gave to me:\n",
+                "nine ladies dancing,\n",
+                "eight maids a-milking,\n",
+                "seven swans a-swimming,\n",
+                "six geese a-laying,\n",
+                "five golden rings,\n",
+                "four calling birds,\n",
+                "three french hens,\n",
+                "two turtledoves,\n",
+                "and a partridge in a pear tree.",
+                "\n",
+                "On the tenth day of Christmas\n",
+                "my true love gave to me:\n",
+                "ten lords a-leaping,\n",
+                "nine ladies dancing,\n",
+                "eight maids a-milking,\n",
+                "seven swans a-swimming,\n",
+                "six geese a-laying,\n",
+                "five golden rings,\n",
+                "four calling birds,\n",
+                "three french hens,\n",
+                "two turtledoves,\n",
+                "and a partridge in a pear tree.",
+                "\n",
+                "On the eleventh day of Christmas\n",
+                "my true love gave to me:\n",
+                "eleven pipers piping,\n",
+                "ten lords a-leaping,\n",
+                "nine ladies dancing,\n",
+                "eight maids a-milking,\n",
+                "seven swans a-swimming,\n",
+                "six geese a-laying,\n",
+                "five golden rings,\n",
+                "four calling birds,\n",
+                "three french hens,\n",
+                "two turtledoves,\n",
+                "and a partridge in a pear tree.",
+                "\n",
+                "On the twelfth day of Christmas\n",
+                "my true love gave to me:\n",
+                "twelve drummers drumming,\n",
+                "eleven pipers piping,\n",
+                "ten lords a-leaping,\n",
+                "nine ladies dancing,\n",
+                "eight maids a-milking,\n",
+                "seven swans a-swimming,\n",
+                "six geese a-laying,\n",
+                "five golden rings,\n",
+                "four calling birds,\n",
+                "three french hens,\n",
+                "two turtledoves,\n",
+                "and a partridge in a pear tree.",
+                "\n"
+            )
+        )
     }
 }
