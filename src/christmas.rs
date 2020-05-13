@@ -1,5 +1,5 @@
 #[allow(dead_code)]
-fn cardinality(n: usize) -> String {
+fn ordinality(n: usize) -> String {
     match n {
         12 => String::from("twelfth"),
         11 => String::from("eleventh"),
@@ -30,7 +30,7 @@ fn day_of_christmas(n: usize) -> String {
 
     format!(
         "On the {} day of Christmas\n{}",
-        cardinality(n),
+        ordinality(n),
         "my true love gave to me:\n"
     )
 }
@@ -101,31 +101,31 @@ mod tests {
     use super::*;
 
     #[test]
-    fn cardinality_it_works() {
-        assert_eq!(cardinality(1), "first");
-        assert_eq!(cardinality(2), "second");
-        assert_eq!(cardinality(3), "third");
-        assert_eq!(cardinality(4), "fourth");
-        assert_eq!(cardinality(5), "fifth");
-        assert_eq!(cardinality(6), "sixth");
-        assert_eq!(cardinality(7), "seventh");
-        assert_eq!(cardinality(8), "eighth");
-        assert_eq!(cardinality(9), "ninth");
-        assert_eq!(cardinality(10), "tenth");
-        assert_eq!(cardinality(11), "eleventh");
-        assert_eq!(cardinality(12), "twelfth");
+    fn ordinality_it_works() {
+        assert_eq!(ordinality(1), "first");
+        assert_eq!(ordinality(2), "second");
+        assert_eq!(ordinality(3), "third");
+        assert_eq!(ordinality(4), "fourth");
+        assert_eq!(ordinality(5), "fifth");
+        assert_eq!(ordinality(6), "sixth");
+        assert_eq!(ordinality(7), "seventh");
+        assert_eq!(ordinality(8), "eighth");
+        assert_eq!(ordinality(9), "ninth");
+        assert_eq!(ordinality(10), "tenth");
+        assert_eq!(ordinality(11), "eleventh");
+        assert_eq!(ordinality(12), "twelfth");
     }
 
     #[test]
     #[should_panic]
-    fn cardinality_invalid_zero_should_panic() {
-        cardinality(0);
+    fn ordinality_invalid_zero_should_panic() {
+        ordinality(0);
     }
 
     #[test]
     #[should_panic]
-    fn cardinality_invalid_gt_twelve_should_panic() {
-        cardinality(13);
+    fn ordinality_invalid_gt_twelve_should_panic() {
+        ordinality(13);
     }
 
     #[test]
